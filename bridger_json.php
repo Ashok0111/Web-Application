@@ -1,0 +1,34 @@
+<?php
+$number_of_slab=$_POST['number_of_slab'];
+$width_of_one_beam=$_POST['width_of_one_beam'];
+$short_span=$_POST['short_span'];
+$long_span=$_POST['long_span'];
+$live_load=$_POST['live_load'];
+$effective_depth=$_POST['effective_depth'];
+$effective_cover=$_POST['effective_cover'];
+$overall_depth=$_POST['overall_depth'];
+$however_provided_value=$_POST['however_provided_value'];
+$effective_depth_2=$_POST['effective_depth_2'];
+$exposure_condition=$_POST['exposure_condition'];
+$grade_of_concrete=$_POST['grade_of_concrete'];
+$grade_of_steel=$_POST['grade_of_steel'];
+$unit_weight_of_concrete=$_POST['unit_weight_of_concrete'];
+$jsonString = file_get_contents('config_slab.json');
+$data = json_decode($jsonString, true);
+$data['number_of_slab'] = $number_of_slab;
+$data['width_of_one_beam'] = $width_of_one_beam;
+$data['short_span'] = $short_span;
+$data['long_span'] = $long_span;
+$data['live_load'] = $live_load;
+$data['effective_depth'] = $effective_depth;
+$data['effective_cover'] = $effective_cover;
+$data['overall_depth'] = $overall_depth;
+$data['however_provided_value'] = $however_provided_value;
+$data['effective_depth_2'] = $effective_depth_2;
+$data['exposure_condition'] = $exposure_condition;
+$data['grade_of_concrete'] = $grade_of_concrete;
+$data['grade_of_steel'] = $grade_of_steel;
+$data['unit_weight_of_concrete'] = $unit_weight_of_concrete;
+$newJsonString = json_encode($data);
+file_put_contents('config_slab.json', $newJsonString);
+?>
